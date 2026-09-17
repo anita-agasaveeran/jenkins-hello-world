@@ -3,10 +3,6 @@ pipeline {
         label '!windows'
     }
 
-    options {
-        skipStagesAfterUnstable()
-    }
-
     environment {
         DISABLE_AUTH = 'true'
         DB_ENGINE    = 'sqlite'
