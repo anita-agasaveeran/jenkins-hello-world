@@ -53,6 +53,7 @@ pipeline {
             echo 'This will always run'
             archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
             junit 'build/reports/**/*.xml'
+            deleteDir() /* clean up our workspace */
         }
         success {
             echo 'This will run only if successful'
