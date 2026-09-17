@@ -19,6 +19,10 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
+                sh '''
+                    mkdir -p build/libs
+                    echo "placeholder build artifact" > build/libs/app.jar
+                '''
             }
         }
         stage('Deploy') {
@@ -47,6 +51,7 @@ pipeline {
     post {
         always {
             echo 'This will always run'
+            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
             junit 'build/reports/**/*.xml'
         }
         success {
