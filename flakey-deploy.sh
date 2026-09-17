@@ -2,7 +2,7 @@
 echo "Attempting deploy..."
 sleep 10
 
-RESULT=$(awk 'BEGIN{srand(); print (rand() < 0.1) ? "success" : "fail"}')
+RESULT=$(awk 'BEGIN{srand(); print (rand() < 0.2) ? "success" : "fail"}')
 
 if [ "$RESULT" = "success" ]; then
     echo "Deploy succeeded"
