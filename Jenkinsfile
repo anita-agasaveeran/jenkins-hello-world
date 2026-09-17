@@ -38,10 +38,16 @@ pipeline {
                 sh 'node --eval "console.log(process.arch,process.platform)"'
             }
         }
+        stage('Unit Tests') {
+            steps {
+                sh './run-tests.sh'
+            }
+        }
     }
     post {
         always {
             echo 'This will always run'
+            junit 'build/reports/**/*.xml'
         }
         success {
             echo 'This will run only if successful'
