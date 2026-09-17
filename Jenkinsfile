@@ -60,7 +60,7 @@ pipeline {
         }
         failure {
             echo 'This will run only if failed'
-            mail to: 'anita.agasaveeran@sjsu.edu',
+            mail to: 'anita.agasaveeran@gmail.com',
                  subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
                  body: "Something is wrong with ${env.BUILD_URL}"
         }
